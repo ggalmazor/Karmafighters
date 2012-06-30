@@ -29,6 +29,10 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./ico/apple-touch-icon-72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="./ico/apple-touch-icon-57-precomposed.png">
 
+  <script src="vendor/microevent/microevent.js"></script>
+  <script src="vendor/jquery/jquery-1.7.1.js"></script>
+  <script src="js/Client.js"></script>
+  <script src="js/Controller.js"></script>
 </head>
 
 <body>
@@ -44,24 +48,22 @@
   <!-- Example row of columns -->
   <div class="row">
     <div class="span2 offset2">
-      <img src="http://gravatar.com/avatar/d4f69cb8f9f4566c158cce3f482e2028/?s=80" class="derecha"/>
-      <h2 class="derecha">Usuario 1</h2>
+      <img src="http://gravatar.com/avatar/d4f69cb8f9f4566c158cce3f482e2028/?s=80" class="izquierda"/>
+      <h2 class="izquierda">Usuario 1</h2>
     </div>
     <div class="span4 texto-justificado">
       <ul class="unstyled" id="ring">
-        <li>totalkcys</li>
-        <li>totalkclicks</li>
-        <li>totalawards</li>
-        <li>totalclips</li>
-        <li>todaykcys</li>
-        <li>todaykclicks</li>
-        <li>humanscircle</li>
-        <li>topwordscount</li>
+        <li data-stat="totalkcys"><span class="izquierda"></span> total kcys <span class="derecha"></span></li>
+        <li data-stat="totalkclicks"><span class="izquierda"></span> total kclicks <span class="derecha"></span></li>
+        <li data-stat="totalawards"><span class="izquierda"></span> total awards <span class="derecha"></span></li>
+        <li data-stat="totalclips"><span class="izquierda"></span> total clips <span class="derecha"></span></li>
+        <li data-stat="humanscircle"><span class="izquierda"></span> humans circle <span class="derecha"></span></li>
+        <li data-stat="topwordscount"><span class="izquierda"></span> top words count <span class="derecha"></span></li>
       </ul>
     </div>
     <div class="span2" >
-      <img src="http://gravatar.com/avatar/d4f69cb8f9f4566c158cce3f482e2028/?s=80" />
-      <h2>Usuario 1</h2>
+      <img src="http://gravatar.com/avatar/d4f69cb8f9f4566c158cce3f482e2028/?s=80" class="derecha"/>
+      <h2 class="derecha">Usuario 1</h2>
     </div>
   </div>
 

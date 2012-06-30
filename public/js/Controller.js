@@ -19,20 +19,30 @@ var Controller = (function () {
 
   var renderUsernameCloud = function (users) {
     var self = this;
-    $('#user-cloud').html('')
+    $('#user-cloud').html('');
     users.forEach(function (user) {
       var li = buildCloudUsername.call(self, user);
       $('#user-cloud').append(li);
     });
   };
 
-  var renderUserOnLeft = function (user) {
-    console.log('left');
-    console.log(user);
+  var renderUserRing = function (left, right) {
+    var r = $('#ring');
+    console.log(left);
+    $('li', r).each(function (idx, statLi) {
+      var stat = $(statLi).attr('data-stat');
+      $('.izquierda', statLi).html(left.stats[stat]);
+      $('.derecha', statLi).html((undefined != right) ? right.stats[stat] : '');
+    });
+    $('img.izquierda').attr('src', left.img);
+    $('h2.izquierda').html(left.username);
+    if (undefined != right) {
+      $('img.derecha').attr('src', right.img);
+      $('h2.derecha').html(right.username);
+    }
   };
 
   var renderUserOnRight = function (user) {
-    console.log('right');
     console.log(user);
   };
 
@@ -60,19 +70,17 @@ var Controller = (function () {
       self.augmentWithCircle(user);
     });
 
-    client.bind('circle-received', function(args) {
+    client.bind('circle-received', function (args) {
       var username, circle, user;
       username = args[0];
       circle = args[1];
       users[username].circle = circle;
       user = users[username];
-      if (undefined == left) {
-        renderUserOnLeft.call(self, user);
+      if (undefined == left)
         left = user;
-      } else {
-        renderUserOnRight.call(self, user);
+      else
         right = user;
-      }
+      renderUserRing.call(self, left, right);
     });
 
     this.loadRankingUsers = function () {

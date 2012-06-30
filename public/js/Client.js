@@ -9,7 +9,7 @@ var Client = (function () {
     };
 
     this.queryUser = function (username) {
-      $.getJSON(urls.user + username + '/?appkey=' + apikey, function (json) {
+      $.getJSON(urls.user + username + '/?kcy=1&appkey=' + apikey, function (json) {
         client.onUserReceived(json.data.user);
       });
     };
