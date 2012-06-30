@@ -58,8 +58,9 @@ Karmafighters::Application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      get "rank" => "api-proxy#rank", :as => :rank
-      get "user/:username" => "api-proxy#user", :as => :user
+      get "rank" => "api-proxy#rank"
+      get "user/:username" => "api-proxy#user"
+      get "domains" => "api-proxy#domains"
     end
   end
 end
