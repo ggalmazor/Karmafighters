@@ -1,6 +1,5 @@
 var Controller = (function () {
   var buildCloudUsername = function (user) {
-    console.log(user);
     var self = this;
     var li = $('<li/>');
     var a = $('<a/>');
@@ -20,10 +19,10 @@ var Controller = (function () {
 
   var renderUsernameCloud = function (users) {
     var self = this;
-    console.log(users);
+    $('#user-cloud').html('')
     users.forEach(function (user) {
       var li = buildCloudUsername.call(self, user);
-      $('#usernameCloud ul.usernames').append(li);
+      $('#user-cloud').append(li);
     });
   };
 
@@ -38,9 +37,9 @@ var Controller = (function () {
   };
 
   return function (client) {
-    var self, left, right;
+    var self, left, right, users;
     self = this;
-
+    users = {};
 
     client.bind('ranking-received', function (args) {
       renderUsernameCloud.apply(self, [args]);
@@ -48,12 +47,30 @@ var Controller = (function () {
 
     client.bind('user-received', function (args) {
       var user = args[0];
-      console.log(user);
+      users[user.username] = user;
+      self.augmentWithDomains(user);
+    });
+
+    client.bind('domains-received', function (args) {
+      var username, domains, user;
+      username = args[0];
+      domains = args[1];
+      users[username].domains = domains;
+      user = users[username];
+      self.augmentWithCircle(user);
+    });
+
+    client.bind('circle-received', function(args) {
+      var username, circle, user;
+      username = args[0];
+      circle = args[1];
+      users[username].circle = circle;
+      user = users[username];
       if (undefined == left) {
-        renderUserOnLeft.apply(self, user);
+        renderUserOnLeft.call(self, user);
         left = user;
       } else {
-        renderUserOnRight.apply(self, user);
+        renderUserOnRight.call(self, user);
         right = user;
       }
     });
@@ -69,6 +86,14 @@ var Controller = (function () {
 
     this.loadUsername = function (username) {
       client.queryUser(username);
-    }
+    };
+
+    this.augmentWithDomains = function (user) {
+      client.queryDomainsOf(user.username);
+    };
+
+    this.augmentWithCircle = function (user) {
+      client.queryCircleOf(user.username);
+    };
   };
 }());

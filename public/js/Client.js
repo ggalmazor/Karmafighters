@@ -14,12 +14,32 @@ var Client = (function () {
       });
     };
 
+    this.queryDomainsOf = function (username) {
+      $.getJSON(urls.domainsOf + '?u=' + username + '&appkey=' + apikey, function (json) {
+        client.onDomainsReceived(username, json.data.domain);
+      });
+    };
+
+    this.queryCircleOf = function (username) {
+      $.getJSON(urls.circleOf + '?u=' + username + '&appkey=' + apikey, function (json) {
+        client.onCircleReceived(username, json.data.circle);
+      });
+    };
+
     this.onRankingReceived = function (ranking) {
       this.trigger('ranking-received', ranking);
     };
 
     this.onUserReceived = function (user) {
-      this.trigger('user-received', [user]);
+      this.trigger('user-received', user);
+    };
+
+    this.onDomainsReceived = function (username, domains) {
+      this.trigger('domains-received', [username, domains]);
+    };
+
+    this.onCircleReceived = function (username, circle) {
+      this.trigger('circle-received', [username, circle]);
     };
   };
 }());
