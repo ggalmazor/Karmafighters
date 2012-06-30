@@ -3,7 +3,8 @@ require 'rest-client'
 
 class Api::V1::ApiProxyController < ApplicationController
   def rank
-    render :text => RestClient.get("#{url_base}/rank/",  {:params => params_with_appkey})
+    render :text => RestClient.get("#{url_base}/rank/",
+                                   {:params => params_with_appkey})
   end
 
   def user
