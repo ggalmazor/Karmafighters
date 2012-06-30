@@ -36,9 +36,16 @@ var Controller = (function () {
     });
     $('img.izquierda').attr('src', left.img);
     $('h2.izquierda').html(left.username);
+    left.kcys.forEach(function (kcy) {
+      $('.kcys.izquierda').append('<li><a href="' + kcy.shorturl + '">' + kcy.title + '</a></li>');
+    });
+
     if (undefined != right) {
       $('img.derecha').attr('src', right.img);
       $('h2.derecha').html(right.username);
+      right.kcys.forEach(function (kcy) {
+        $('.kcys.derecha').append('<li><a href="' + kcy.shorturl + '">' + kcy.title + '</a></li>');
+      });
     }
   };
 
