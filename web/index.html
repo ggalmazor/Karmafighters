@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>KarmaFighters</title>
+
+  <!-- Vendor JS -->
+  <script type="text/javascript" src="vendor/jquery/jquery-1.7.1.js"></script>
+  <script type="text/javascript" src="vendor/microevent/microevent.js"></script>
+
+  <!-- Source -->
+  <script type="text/javascript" src="js/Client.js"></script>
+  <script type="text/javascript" src="js/Controller.js"></script>
+</head>
+<body>
+
+<h1>KarmaFighters</h1>
+<section id="usernameCloud">
+  <ul class="usernames"></ul>
+</section>
+
+<section id="ring">
+  <article class="left"></article>
+  <article class="right"></article>
+</section>
+
+<script>
+  var apikey, c, urls;
+  apikey = 'l0rd!0f.K4t4yun1a';
+  urls = {
+    queryRanking:'http://karmacracy.com/api/v1/rank/',
+    queryUser:'http://karmacracy.com/api/v1/user/'
+  };
+  $(document).ready(function () {
+    var client = new Client(apikey, urls);
+    c = new Controller(client);
+    c.loadUsernames();
+  })
+</script>
+</body>
+</html>
