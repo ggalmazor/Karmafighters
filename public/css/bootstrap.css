@@ -4983,8 +4983,6 @@ a.badge:hover {
 }
 
 .usuario {
-    border: 1px solid #F00;
-    width: 100%;
 }
 
 .derecha {
@@ -4993,4 +4991,16 @@ a.badge:hover {
 
 .izquierda {
     float: left;
+}
+
+.borde {
+    border: 1px solid #f00;
+}
+
+.texto-justificado {
+    text-align: center;
+}
+
+.centrado {
+    margin: 0 auto;
 }
