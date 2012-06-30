@@ -28,13 +28,13 @@
   var apikey, c, urls;
   apikey = 'l0rd!0f.K4t4yun1a';
   urls = {
-    queryRanking:'http://karmacracy.com/api/v1/rank/',
-    queryUser:'http://karmacracy.com/api/v1/user/'
+    ranking:'http://karmacracy.com/api/v1/rank/',
+    user:'http://karmacracy.com/api/v1/user/'
   };
   $(document).ready(function () {
     var client = new Client(apikey, urls);
     c = new Controller(client);
-    c.loadUsernames();
+    c.loadRankingUsers();
   })
 </script>
 </body>
