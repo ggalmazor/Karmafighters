@@ -61,6 +61,7 @@ Karmafighters::Application.routes.draw do
       get "rank" => "api-proxy#rank"
       get "user/:username" => "api-proxy#user"
       get "domains" => "api-proxy#domains"
+      get "circle/:username" => "api-proxy#circle"
     end
   end
 end

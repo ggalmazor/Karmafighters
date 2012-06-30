@@ -3,6 +3,8 @@ require 'rest-client'
 
 class Api::V1::ApiProxyController < ApplicationController
   def rank
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Request-Method'] = '*'
     render :text => get_to("#{url_base}/rank/")
   end
 
@@ -12,6 +14,10 @@ class Api::V1::ApiProxyController < ApplicationController
 
   def domains
     render :text => get_to("#{url_base}/domains/")
+  end
+
+  def circle
+    render :text => get_to("#{url_base}/circle/#{params[:username]}")
   end
 
   private
