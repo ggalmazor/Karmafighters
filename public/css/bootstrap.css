@@ -5006,3 +5006,18 @@ h2.derecha {
 .centrado {
     margin: 0 auto;
 }
+.s-large {
+  font-size: 22px;
+}
+.bold {
+  font-weight: bold;
+}
+.number {
+  display:inline-block;
+  top:3px;
+  position:relative;
+  margin: 0px 10px;
+}
+#ring li {
+  margin-bottom: 5px;
+}
