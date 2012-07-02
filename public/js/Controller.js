@@ -24,6 +24,7 @@ var Controller = (function () {
       var li = buildCloudUsername.call(self, user);
       $('#user-cloud').append(li);
     });
+    nubetron();
   };
 
   var renderUserRing = function (left, right) {
@@ -49,8 +50,17 @@ var Controller = (function () {
     }
   };
 
-  var renderUserOnRight = function (user) {
-    console.log(user);
+  var nubetron = function() {
+    if (!$('#myCanvas').tagcanvas({
+      textColour:'#333',
+      textFont: 'Press Start 2P',
+      outlineColour:'#000',
+      reverse:true,
+      depth:0.8,
+      maxSpeed:0.05
+    }, 'tags')) {
+      $('#myCanvasContainer').hide();
+    }
   };
 
   return function (client) {

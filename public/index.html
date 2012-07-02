@@ -42,41 +42,43 @@
   <!-- Main hero unit for a primary marketing message or call to action -->
   <div class="hero-unit">
     <h1>KARMAFIGHTERS</h1>
-    <ul id="user-cloud"></ul>
-<div id="myCanvasContainer">
-      <canvas width="300" height="300" id="myCanvas">
+
+    <div id="myCanvasContainer">
+      <canvas width="1080" height="300" id="myCanvas">
         <p>Anything in here will be replaced on browsers that support the canvas element</p>
       </canvas>
     </div>
     <div id="tags">
-        
-      <ul>
-        <li><a href="http://www.google.com" target="_blank">Google</a></li>
-        <li><a href="/fish">Fish</a></li>
-        <li><a href="/chips">Chips</a></li>
-        <li><a href="/salt">Salt</a></li>
-        <li><a href="/vinegar">Vinegar</a></li>
-      </ul>
+      <ul id="user-cloud"></ul>
     </div>
+  </div>
 
   <!-- Example row of columns -->
   <div class="row">
-    <div class="span2 offset2">
-      <img src="http://gravatar.com/avatar/d4f69cb8f9f4566c158cce3f482e2028/?s=80" class="izquierda"/>
+    <div class="span3">
+      <img src="assets/nouser.jpeg" class="izquierda"/>
+
       <h2 class="izquierda">Usuario 1</h2>
     </div>
-    <div class="span4 texto-justificado">
+    <div class="span6 texto-justificado">
       <ul class="unstyled" id="ring">
-        <li data-stat="totalkcys"><span class="izquierda s-large number"></span> total kcys <span class="derecha s-large number"></span></li>
-        <li data-stat="totalkclicks"><span class="izquierda s-large number"></span> total kclicks <span class="derecha s-large number"></span></li>
-        <li data-stat="totalawards"><span class="izquierda s-large number"></span> total awards <span class="derecha s-large number"></span></li>
-        <li data-stat="totalclips"><span class="izquierda s-large number"></span> total clips <span class="derecha s-large number"></span></li>
-        <li data-stat="humanscircle"><span class="izquierda s-large number"></span> humans circle <span class="derecha s-large number"></span></li>
-        <li data-stat="topwordscount"><span class="izquierda s-large number"></span> top words count <span class="derecha s-large number"></span></li>
+        <li data-stat="totalkcys"><span class="izquierda s-large number"></span> total kcys <span
+            class="derecha s-large number"></span></li>
+        <li data-stat="totalkclicks"><span class="izquierda s-large number"></span> total kclicks <span
+            class="derecha s-large number"></span></li>
+        <li data-stat="totalawards"><span class="izquierda s-large number"></span> total awards <span
+            class="derecha s-large number"></span></li>
+        <li data-stat="totalclips"><span class="izquierda s-large number"></span> total clips <span
+            class="derecha s-large number"></span></li>
+        <li data-stat="humanscircle"><span class="izquierda s-large number"></span> humans circle <span
+            class="derecha s-large number"></span></li>
+        <li data-stat="topwordscount"><span class="izquierda s-large number"></span> top words count <span
+            class="derecha s-large number"></span></li>
       </ul>
     </div>
-    <div class="span2" >
-      <img src="http://gravatar.com/avatar/d4f69cb8f9f4566c158cce3f482e2028/?s=80" class="derecha"/>
+    <div class="span3">
+      <img src="assets/nouser.jpeg" class="derecha"/>
+
       <h2 class="derecha">Usuario 1</h2>
     </div>
   </div>
@@ -107,7 +109,8 @@
   <p>&copy; Karmafighters 2012</p>
 </footer>
 
-</div> <!-- /container -->
+</div>
+<!-- /container -->
 
 <!-- Le javascript
 ================================================== -->
@@ -137,23 +140,12 @@
     domainsOf:'http://karmacracy.com/api/v1/domains/',
     circleOf:'http://karmacracy.com/api/v1/circle/'
   };
-  function nubetron(){
-    if(!$('#myCanvas').tagcanvas({
-        textColour: '#ff0000',
-        outlineColour: '#ff00ff',
-        reverse: true,
-        depth: 0.8,
-        maxSpeed: 0.05
-    },'tags')) {
-        // something went wrong, hide the canvas container
-        $('#myCanvasContainer').hide();
-    }      
-  }
+
   $(document).ready(function () {
     var client = new Client('l0rd!0f.K4t4yun1a', urls);
     c = new Controller(client);
     c.loadRankingUsers();
-    
+
   })
 </script>
 </body>
